@@ -1,6 +1,6 @@
 app-id: dev.geopjr.Tuba
 runtime: org.gnome.Platform
-runtime-version: "44"
+runtime-version: '44'
 sdk: org.gnome.Sdk
 command: dev.geopjr.Tuba
 finish-args:
@@ -9,6 +9,7 @@ finish-args:
   - --share=network
   - --socket=fallback-x11
   - --socket=wayland
+  - --env=GDK_PIXBUF_MODULE_FILE=/app/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache
 cleanup:
   - /include
   - /lib/pkgconfig
@@ -21,25 +22,27 @@ cleanup:
   - '*.la'
   - '*.a'
 modules:
-  - name: libsoup-2.4
+  - name: webp-pixbuf-loader
     buildsystem: meson
     config-opts:
-      - -Dvapi=disabled
-      - -Dtests=false
-      - -Dtls_check=false
-      - -Dntlm=disabled
-      - -Dsysprof=enabled
+    - "-Dgdk_pixbuf_moduledir=/app/lib/gdk-pixbuf-2.0/2.10.0/loaders/"
     sources:
-      - type: git
-        url: https://gitlab.gnome.org/GNOME/libsoup.git
-        commit: b0e2d85e36c5a9ee8d4caf16dbdc30302fcf470d
+    - type: git
+      url: https://github.com/aruiz/webp-pixbuf-loader.git
+      tag: 0.2.4
+      commit: a35014104a226265e44fe30fcdb4df9305af3466
+  - name: update-pixbuf-loaders
+    buildsystem: simple
+    build-commands:
+    - GDK_PIXBUF_MODULEDIR=/app/lib/gdk-pixbuf-2.0/2.10.0/loaders/ gdk-pixbuf-query-loaders > /app/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache
+    - gdk-pixbuf-query-loaders >> /app/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache
   - name: tuba
     buildsystem: meson
     sources:
       - type: git
         url: https://github.com/GeopJr/Tuba.git
-        tag: v0.1.0
-        commit: 3d952be8d31136873fe1261c460baf88aafb8e7f
+        tag: v0.2.0
+        commit: 85e8c02b387a30f0d3627cb7d95def456f64d796
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
