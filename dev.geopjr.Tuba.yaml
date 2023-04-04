@@ -1,6 +1,6 @@
 app-id: dev.geopjr.Tuba
 runtime: org.gnome.Platform
-runtime-version: "44"
+runtime-version: '44'
 sdk: org.gnome.Sdk
 command: dev.geopjr.Tuba
 finish-args:
@@ -38,8 +38,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/GeopJr/Tuba.git
-        tag: v0.1.0
-        commit: 3d952be8d31136873fe1261c460baf88aafb8e7f
+        tag: v0.2.0
+        commit: 85e8c02b387a30f0d3627cb7d95def456f64d796
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
