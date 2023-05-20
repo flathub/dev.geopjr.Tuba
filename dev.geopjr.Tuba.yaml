@@ -26,24 +26,25 @@ modules:
   - name: webp-pixbuf-loader
     buildsystem: meson
     config-opts:
-    - "-Dgdk_pixbuf_moduledir=/app/lib/gdk-pixbuf-2.0/2.10.0/loaders/"
+      - -Dgdk_pixbuf_moduledir=/app/lib/gdk-pixbuf-2.0/2.10.0/loaders/
     sources:
-    - type: git
-      url: https://github.com/aruiz/webp-pixbuf-loader.git
-      tag: 0.2.4
-      commit: a35014104a226265e44fe30fcdb4df9305af3466
+      - type: git
+        url: https://github.com/aruiz/webp-pixbuf-loader.git
+        tag: 0.2.4
+        commit: a35014104a226265e44fe30fcdb4df9305af3466
   - name: update-pixbuf-loaders
     buildsystem: simple
     build-commands:
-    - GDK_PIXBUF_MODULEDIR=/app/lib/gdk-pixbuf-2.0/2.10.0/loaders/ gdk-pixbuf-query-loaders > /app/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache
-    - gdk-pixbuf-query-loaders >> /app/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache
+      - GDK_PIXBUF_MODULEDIR=/app/lib/gdk-pixbuf-2.0/2.10.0/loaders/ gdk-pixbuf-query-loaders
+        > /app/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache
+      - gdk-pixbuf-query-loaders >> /app/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache
   - name: tuba
     buildsystem: meson
     sources:
       - type: git
         url: https://github.com/GeopJr/Tuba.git
-        tag: v0.3.0
-        commit: c11992a3acd510c9acfa46632a461fb25613b520
+        tag: v0.3.1
+        commit: 825dbced1179f947d5c01f769a0e81c6098727a1
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
