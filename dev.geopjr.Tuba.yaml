@@ -38,13 +38,21 @@ modules:
       - GDK_PIXBUF_MODULEDIR=/app/lib/gdk-pixbuf-2.0/2.10.0/loaders/ gdk-pixbuf-query-loaders
         > /app/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache
       - gdk-pixbuf-query-loaders >> /app/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache
+  - name: libspelling
+    buildsystem: meson
+    config-opts:
+      - -Ddocs=false
+    sources:
+      - type: git
+        url: https://gitlab.gnome.org/chergert/libspelling.git
+        commit: 65185023db95ec464970aeaeab766fe3ba26ae7d
   - name: tuba
     buildsystem: meson
     sources:
       - type: git
         url: https://github.com/GeopJr/Tuba.git
-        tag: v0.3.2
-        commit: 5414d3b42aa9d5a01ac5c002010292144be920ea
+        tag: v0.4.0
+        commit: 44136b8cde706420df4a9dd809ff8a1be469b420
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
