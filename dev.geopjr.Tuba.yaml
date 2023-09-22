@@ -1,6 +1,6 @@
 app-id: dev.geopjr.Tuba
 runtime: org.gnome.Platform
-runtime-version: '44'
+runtime-version: '45'
 sdk: org.gnome.Sdk
 command: dev.geopjr.Tuba
 finish-args:
@@ -45,7 +45,8 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/chergert/libspelling.git
-        commit: 65185023db95ec464970aeaeab766fe3ba26ae7d
+        commit: baefb81b3b236e3bd29c0aa23f79056b2636e311
+        tag: 0.2.0
   - name: tuba
     buildsystem: meson
     sources:
