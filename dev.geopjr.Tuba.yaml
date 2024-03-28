@@ -29,16 +29,16 @@ modules:
       - -Ddocs=false
     sources:
       - type: git
-        url: https://gitlab.gnome.org/chergert/libspelling.git
-        commit: baefb81b3b236e3bd29c0aa23f79056b2636e311
-        tag: 0.2.0
+        url: https://gitlab.gnome.org/GNOME/libspelling.git
+        commit: 0e9b8b2187ecda4dc1ce48a9bcc9a9976490fda2
+        tag: 0.2.1
   - name: tuba
     buildsystem: meson
     sources:
       - type: git
         url: https://github.com/GeopJr/Tuba.git
-        tag: v0.7.0
-        commit: b928bf3a6f1be7cd34cc9a2b018396527ffbcc87
+        tag: v0.7.1
+        commit: ad4e29aa6825e319c08569f6b887543080f63cb1
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
