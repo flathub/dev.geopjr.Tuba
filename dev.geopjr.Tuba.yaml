@@ -37,8 +37,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/GeopJr/Tuba.git
-        tag: v0.8.1
-        commit: b792d94e446d6d4a6c1484e45bfe31acc7700397
+        tag: v0.8.2
+        commit: 91bca8c55013c86eb674abccb2b39adf1889865f
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
