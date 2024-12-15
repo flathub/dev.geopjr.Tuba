@@ -1,6 +1,6 @@
 app-id: dev.geopjr.Tuba
 runtime: org.gnome.Platform
-runtime-version: '46'
+runtime-version: '47'
 sdk: org.gnome.Sdk
 command: dev.geopjr.Tuba
 finish-args:
@@ -30,15 +30,15 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/libspelling.git
-        commit: 0e9b8b2187ecda4dc1ce48a9bcc9a9976490fda2
-        tag: 0.2.1
+        commit: ab64511edd5cf53c8a81a51e2883d6f69e585f64
+        tag: 0.4.5
   - name: tuba
     buildsystem: meson
     sources:
       - type: git
         url: https://github.com/GeopJr/Tuba.git
-        tag: v0.8.4
-        commit: b77a5c4fffa5f0246a52536547dac64cf049a869
+        tag: v0.9.0
+        commit: 9237db2a16202f7aa311fc78efda41669dcbaeb9
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
