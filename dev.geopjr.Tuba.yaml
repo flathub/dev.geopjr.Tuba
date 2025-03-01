@@ -30,15 +30,15 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/libspelling.git
-        commit: ab64511edd5cf53c8a81a51e2883d6f69e585f64
-        tag: 0.4.5
+        commit: 47f1d5e7a09b5affef343cb4a45c3040b4238e08
+        tag: 0.4.6
   - name: tuba
     buildsystem: meson
     sources:
       - type: git
         url: https://github.com/GeopJr/Tuba.git
-        tag: v0.9.1
-        commit: e58fa4f3aea85d5a0f75ff135b09f276e6bfbd6f
+        tag: v0.9.2
+        commit: b3cd70a2f9bcde6e483b9091760e1e523ea1f8a0
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
