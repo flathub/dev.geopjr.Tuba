@@ -1,0 +1,45 @@
+From 45ff9eda17b0d0109bf226c112eab297e5b7b7e6 Mon Sep 17 00:00:00 2001
+From: Evan Paterakis <evan@geopjr.dev>
+Date: Wed, 7 May 2025 06:00:56 +0300
+Subject: [PATCH] fix: emblem-ok missing (#1396)
+
+---
+ data/gresource.xml                                        | 1 +
+ data/icons/scalable/actions/tuba-check-plain-symbolic.svg | 2 ++
+ data/ui/views/sidebar/account.ui                          | 2 +-
+ 3 files changed, 4 insertions(+), 1 deletion(-)
+ create mode 100644 data/icons/scalable/actions/tuba-check-plain-symbolic.svg
+
+diff --git a/data/gresource.xml b/data/gresource.xml
+index 9a4d46cf..08942d50 100644
+--- a/data/gresource.xml
++++ b/data/gresource.xml
+@@ -80,6 +80,7 @@
+         <file preprocess="xml-stripblanks">icons/scalable/actions/tuba-dock-right-symbolic.svg</file>
+         <file preprocess="xml-stripblanks">icons/scalable/actions/tuba-channel-insecure-symbolic.svg</file>
+         <file preprocess="xml-stripblanks">icons/scalable/actions/tuba-view-refresh-symbolic.svg</file>
++        <file preprocess="xml-stripblanks">icons/scalable/actions/tuba-check-plain-symbolic.svg</file>
+         <!-- <file preprocess="xml-stripblanks">icons/scalable/actions/tuba-language-symbolic.svg</file> -->
+ 
+         <file preprocess="xml-stripblanks">icons/scalable/apps/dev.geopjr.Archives.svg</file>
+diff --git a/data/icons/scalable/actions/tuba-check-plain-symbolic.svg b/data/icons/scalable/actions/tuba-check-plain-symbolic.svg
+new file mode 100644
+index 00000000..f04a8b1c
+--- /dev/null
++++ b/data/icons/scalable/actions/tuba-check-plain-symbolic.svg
+@@ -0,0 +1,2 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<svg xmlns="http://www.w3.org/2000/svg" height="16px" viewBox="0 0 16 16" width="16px"><path d="m 13.753906 4.65625 c 0.175782 -0.199219 0.261719 -0.460938 0.246094 -0.722656 c -0.019531 -0.265625 -0.140625 -0.511719 -0.339844 -0.6875 c -0.199218 -0.175782 -0.460937 -0.265625 -0.726562 -0.246094 c -0.265625 0.015625 -0.511719 0.140625 -0.6875 0.339844 l -6.296875 7.195312 l -2.242188 -2.246094 c -0.390625 -0.390624 -1.023437 -0.390624 -1.414062 0 c -0.1875 0.1875 -0.292969 0.445313 -0.292969 0.710938 s 0.105469 0.519531 0.292969 0.707031 l 3 3 c 0.195312 0.195313 0.464843 0.300781 0.742187 0.292969 c 0.273438 -0.011719 0.535156 -0.132812 0.71875 -0.34375 z m 0 0" fill="#222222"/></svg>
+diff --git a/data/ui/views/sidebar/account.ui b/data/ui/views/sidebar/account.ui
+index eac46914..dc9d736f 100644
+--- a/data/ui/views/sidebar/account.ui
++++ b/data/ui/views/sidebar/account.ui
+@@ -22,7 +22,7 @@
+ 						<property name="focusable">0</property>
+ 						<property name="halign">end</property>
+ 						<property name="valign">end</property>
+-						<property name="icon-name">emblem-ok-symbolic</property>
++						<property name="icon-name">tuba-check-plain-symbolic</property>
+ 						<property name="pixel-size">11</property>
+ 						<style>
+ 							<class name="blue-checkmark" />

@@ -42,3 +42,7 @@ modules:
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
+      - type: patch
+        path: fix-emblem-ok-missing.patch # https://github.com/GeopJr/Tuba/commit/45ff9eda17b0d0109bf226c112eab297e5b7b7e6.patch
+      - type: patch
+        path: style-roundness-match-adw-1-8.patch # https://github.com/GeopJr/Tuba/commit/112d0c6c7bca22d876c37e09c4e8e8ec007222d5.patch
