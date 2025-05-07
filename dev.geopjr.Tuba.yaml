@@ -1,6 +1,6 @@
 app-id: dev.geopjr.Tuba
 runtime: org.gnome.Platform
-runtime-version: '47'
+runtime-version: '48'
 sdk: org.gnome.Sdk
 command: dev.geopjr.Tuba
 finish-args:
@@ -30,8 +30,8 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/libspelling.git
-        commit: 47f1d5e7a09b5affef343cb4a45c3040b4238e08
-        tag: 0.4.6
+        commit: 07d3bbbbad393b7594918b8df3486531edb61aaf
+        tag: 0.4.8
   - name: tuba
     buildsystem: meson
     sources:
@@ -42,3 +42,7 @@ modules:
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
+      - type: patch
+        path: fix-emblem-ok-missing.patch # https://github.com/GeopJr/Tuba/commit/45ff9eda17b0d0109bf226c112eab297e5b7b7e6.patch
+      - type: patch
+        path: style-roundness-match-adw-1-8.patch # https://github.com/GeopJr/Tuba/commit/112d0c6c7bca22d876c37e09c4e8e8ec007222d5.patch
