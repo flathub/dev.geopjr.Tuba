@@ -30,8 +30,8 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/libspelling.git
-        commit: 47f1d5e7a09b5affef343cb4a45c3040b4238e08
-        tag: 0.4.6
+        commit: 07d3bbbbad393b7594918b8df3486531edb61aaf
+        tag: 0.4.8
   - name: tuba
     buildsystem: meson
     sources:
