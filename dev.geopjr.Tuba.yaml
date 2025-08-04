@@ -3,6 +3,19 @@ runtime: org.gnome.Platform
 runtime-version: '48'
 sdk: org.gnome.Sdk
 command: dev.geopjr.Tuba
+add-extensions:
+  org.freedesktop.Platform.ffmpeg-full:
+    version: 24.08
+    directory: lib/ffmpeg
+    add-ld-path: .
+    no-autodownload: false
+    autodelete: false
+  com.github.rafostar.Clapper.Enhancers:
+    version: stable
+    directory: extensions/clapper/enhancers
+    add-ld-path: "lib"
+    no-autodownload: false
+    autodelete: false
 finish-args:
   - --device=dri
   - --share=ipc
@@ -11,6 +24,8 @@ finish-args:
   - --socket=wayland
   - --socket=pulseaudio
   - --env=GST_PLUGIN_FEATURE_RANK=vaav1dec:MAX,vavp9dec:MAX,vavp8dec:MAX,vah264dec:MAX
+  - --env=CLAPPER_ENHANCERS_PATH=/app/extensions/clapper/enhancers/plugins
+  - --env=PYTHONPATH=/app/extensions/clapper/enhancers/python/site-packages
 cleanup:
   - /include
   - /lib/pkgconfig
@@ -22,7 +37,36 @@ cleanup:
   - /share/vala
   - '*.la'
   - '*.a'
+cleanup-commands:
+  - mkdir -p /app/lib/ffmpeg
+  - mkdir -p /app/extensions/clapper/enhancers
 modules:
+  - name: libpeas
+    buildsystem: meson
+    config-opts:
+      - --wrap-mode=nodownload
+      - -Dgjs=false
+      - -Dlua51=false
+      - -Dintrospection=false
+    sources:
+      - type: archive
+        url: 'https://download.gnome.org/sources/libpeas/2.0/libpeas-2.0.5.tar.xz'
+        sha256: 376f2f73d731b54e13ddbab1d91b6382cf6a980524def44df62add15489de6dd
+        x-checker-data:
+          type: gnome
+          name: libpeas
+  - name: clapper
+    buildsystem: meson
+    config-opts:
+      - -Dclapper=enabled
+      - -Dclapper-gtk=enabled
+      - -Dclapper-app=disabled
+      - -Dintrospection=enabled
+      - -Dvapi=enabled
+    sources:
+      - type: git
+        url: 'https://github.com/Rafostar/clapper.git'
+        tag: 0.8.0
   - name: libspelling
     buildsystem: meson
     config-opts:
@@ -32,17 +76,55 @@ modules:
         url: https://gitlab.gnome.org/GNOME/libspelling.git
         commit: 07d3bbbbad393b7594918b8df3486531edb61aaf
         tag: 0.4.8
+  - name: exiv2
+    sources:
+      - type: archive
+        url: 'https://github.com/Exiv2/exiv2/archive/refs/tags/v0.28.5.tar.gz'
+        sha256: e1671f744e379a87ba0c984617406fdf8c0ad0c594e5122f525b2fb7c28d394d
+        x-checker-data:
+          type: anitya
+          project-id: 769
+          stable-only: true
+          url-template: 'https://github.com/Exiv2/exiv2/archive/refs/tags/v$version.tar.gz'
+    cleanup:
+      - /bin
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DEXIV2_BUILD_EXIV2_COMMAND=OFF
+      - -DEXIV2_ENABLE_INIH=OFF
+      - -DEXIV2_ENABLE_VIDEO=OFF
+      - -DEXIV2_BUILD_SAMPLES=OFF
+      - -DEXIV2_BUILD_UNIT_TESTS=OFF
+      - -DEXIV2_BUILD_DOC=OFF
+      - -DEXIV2_ENABLE_LENSDATA=OFF
+      - -DEXIV2_ENABLE_XMP=ON
+      - -DEXIV2_ENABLE_EXTERNAL_XMP=OFF
+      - -DCMAKE_BUILD_TYPE=MinSizeRel
+  - name: gexiv2
+    buildsystem: meson
+    config-opts:
+      - -Dpython3=false
+      - -Dtools=false
+    sources:
+      - type: archive
+        url: 'https://download.gnome.org/sources/gexiv2/0.15/gexiv2-0.15.0.tar.xz'
+        sha256: 045ec4584d32963719e0722929f40f1d19566d4582e1eee4604be97e8c3eb740
+        x-checker-data:
+          type: gnome
+          name: gexiv2
   - name: tuba
     buildsystem: meson
+    config-opts:
+      - -Dclapper=enabled
+      - -Dspelling=enabled
+      - -Dgstreamer=enabled
+      - -Din-app-browser=enabled
+      - -Dgexiv2=enabled
     sources:
       - type: git
         url: https://github.com/GeopJr/Tuba.git
-        tag: v0.9.2
-        commit: b3cd70a2f9bcde6e483b9091760e1e523ea1f8a0
+        tag: v0.10.0
+        commit: 8db682e162f5699ec2d677d924877934b162a1ce
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
-      - type: patch
-        path: fix-emblem-ok-missing.patch # https://github.com/GeopJr/Tuba/commit/45ff9eda17b0d0109bf226c112eab297e5b7b7e6.patch
-      - type: patch
-        path: style-roundness-match-adw-1-8.patch # https://github.com/GeopJr/Tuba/commit/112d0c6c7bca22d876c37e09c4e8e8ec007222d5.patch
