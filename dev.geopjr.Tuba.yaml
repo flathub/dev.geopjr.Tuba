@@ -13,7 +13,7 @@ add-extensions:
   com.github.rafostar.Clapper.Enhancers:
     version: stable
     directory: extensions/clapper/enhancers
-    add-ld-path: "lib"
+    add-ld-path: lib
     no-autodownload: false
     autodelete: false
 finish-args:
@@ -50,8 +50,8 @@ modules:
       - -Dintrospection=false
     sources:
       - type: archive
-        url: 'https://download.gnome.org/sources/libpeas/2.0/libpeas-2.0.5.tar.xz'
-        sha256: 376f2f73d731b54e13ddbab1d91b6382cf6a980524def44df62add15489de6dd
+        url: https://download.gnome.org/sources/libpeas/2.0/libpeas-2.0.7.tar.xz
+        sha256: 1e9a9d69761d2109eff5b7c11d8c96b4867ccfaca2b921eded49401192769ec9
         x-checker-data:
           type: gnome
           name: libpeas
@@ -65,7 +65,7 @@ modules:
       - -Dvapi=enabled
     sources:
       - type: git
-        url: 'https://github.com/Rafostar/clapper.git'
+        url: https://github.com/Rafostar/clapper.git
         tag: 0.8.0
   - name: libspelling
     buildsystem: meson
@@ -79,13 +79,13 @@ modules:
   - name: exiv2
     sources:
       - type: archive
-        url: 'https://github.com/Exiv2/exiv2/archive/refs/tags/v0.28.5.tar.gz'
+        url: https://github.com/Exiv2/exiv2/archive/refs/tags/v0.28.5.tar.gz
         sha256: e1671f744e379a87ba0c984617406fdf8c0ad0c594e5122f525b2fb7c28d394d
         x-checker-data:
           type: anitya
           project-id: 769
           stable-only: true
-          url-template: 'https://github.com/Exiv2/exiv2/archive/refs/tags/v$version.tar.gz'
+          url-template: https://github.com/Exiv2/exiv2/archive/refs/tags/v$version.tar.gz
     cleanup:
       - /bin
     buildsystem: cmake-ninja
@@ -107,8 +107,8 @@ modules:
       - -Dtools=false
     sources:
       - type: archive
-        url: 'https://download.gnome.org/sources/gexiv2/0.15/gexiv2-0.15.0.tar.xz'
-        sha256: 045ec4584d32963719e0722929f40f1d19566d4582e1eee4604be97e8c3eb740
+        url: https://download.gnome.org/sources/gexiv2/0.15/gexiv2-0.15.1.tar.xz
+        sha256: 4884a6e16629c8383ae75f29f8b5518107308c84318a6d77511fbff8fa20b419
         x-checker-data:
           type: gnome
           name: gexiv2
