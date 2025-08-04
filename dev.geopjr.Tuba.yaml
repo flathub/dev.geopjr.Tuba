@@ -24,7 +24,6 @@ finish-args:
   - --socket=wayland
   - --socket=pulseaudio
   - --own-name=org.mpris.MediaPlayer2.Tuba.*
-  - --env=GST_PLUGIN_FEATURE_RANK=vaav1dec:MAX,vavp9dec:MAX,vavp8dec:MAX,vah264dec:MAX
   - --env=CLAPPER_ENHANCERS_PATH=/app/extensions/clapper/enhancers/plugins
   - --env=PYTHONPATH=/app/extensions/clapper/enhancers/python/site-packages
 cleanup:
