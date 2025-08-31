@@ -107,8 +107,8 @@ modules:
       - -Dtools=false
     sources:
       - type: archive
-        url: https://download.gnome.org/sources/gexiv2/0.15/gexiv2-0.15.1.tar.xz
-        sha256: 4884a6e16629c8383ae75f29f8b5518107308c84318a6d77511fbff8fa20b419
+        url: https://download.gnome.org/sources/gexiv2/0.15/gexiv2-0.15.2.tar.xz
+        sha256: a3a25230dccf8c58a54c4c3c64b926fe948c23dc3910d37ffb268a6305e5fbac
         x-checker-data:
           type: gnome
           name: gexiv2
