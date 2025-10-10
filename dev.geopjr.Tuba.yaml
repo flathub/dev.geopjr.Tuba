@@ -4,12 +4,6 @@ runtime-version: '49'
 sdk: org.gnome.Sdk
 command: dev.geopjr.Tuba
 add-extensions:
-  org.freedesktop.Platform.ffmpeg-full:
-    version: 25.08
-    directory: lib/ffmpeg
-    add-ld-path: .
-    no-autodownload: false
-    autodelete: false
   com.github.rafostar.Clapper.Enhancers:
     version: stable
     directory: extensions/clapper/enhancers
@@ -38,7 +32,6 @@ cleanup:
   - '*.la'
   - '*.a'
 cleanup-commands:
-  - mkdir -p /app/lib/ffmpeg
   - mkdir -p /app/extensions/clapper/enhancers
 modules:
   - name: libpeas
