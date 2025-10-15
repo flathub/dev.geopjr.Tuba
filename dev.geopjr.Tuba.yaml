@@ -126,3 +126,5 @@ modules:
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
+      - type: patch
+        path: feat-metainfo-lock-screenshots.patch # https://github.com/GeopJr/Tuba/pull/1578
