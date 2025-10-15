@@ -60,15 +60,20 @@ modules:
       - type: git
         url: https://github.com/Rafostar/clapper.git
         tag: 0.8.0
+        x-checker-data:
+          type: git
+          tag-pattern: ^([\d.]+)$
   - name: libspelling
     buildsystem: meson
     config-opts:
       - -Ddocs=false
     sources:
-      - type: git
-        url: https://gitlab.gnome.org/GNOME/libspelling.git
-        commit: e41e11d6ca6f5af987a46caa08036d5f0f629892
-        tag: 0.4.9
+      - type: archive
+        url: https://download.gnome.org/sources/libspelling/0.4/libspelling-0.4.9.tar.xz
+        sha256: d093fd35ae0f1c98fb58876505287fc0a885e47da9d2411d6d7cd595f34d4ebf
+        x-checker-data:
+          type: gnome
+          name: libspelling
   - name: exiv2
     sources:
       - type: archive
