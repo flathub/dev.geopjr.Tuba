@@ -63,6 +63,7 @@ modules:
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
+        commit: a449b6b3f5e9c1c6852b26d8387d448ca7d0e756
   - name: libspelling
     buildsystem: meson
     config-opts:
