@@ -59,10 +59,11 @@ modules:
     sources:
       - type: git
         url: https://github.com/Rafostar/clapper.git
-        tag: 0.8.0
+        tag: 0.10.0
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
+        commit: 8fcaaffe8a8f408f26a2da9f0a0087e32195fa46
   - name: libspelling
     buildsystem: meson
     config-opts:
