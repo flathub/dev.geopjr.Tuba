@@ -43,8 +43,8 @@ modules:
       - -Dintrospection=false
     sources:
       - type: archive
-        url: https://download.gnome.org/sources/libpeas/2.2/libpeas-2.2.0.tar.xz
-        sha256: c2887233f084a69fabfc7fa0140d410491863d7050afb28677f9a553b2580ad9
+        url: https://download.gnome.org/sources/libpeas/2.2/libpeas-2.2.1.tar.xz
+        sha256: 589eca89b437006edf3755478df037c740a2a84cfa5d202dbad6095e828e2488
         x-checker-data:
           type: gnome
           name: libpeas
@@ -59,18 +59,19 @@ modules:
     sources:
       - type: git
         url: https://github.com/Rafostar/clapper.git
-        tag: 0.8.0
+        tag: 0.10.0
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
+        commit: 8fcaaffe8a8f408f26a2da9f0a0087e32195fa46
   - name: libspelling
     buildsystem: meson
     config-opts:
       - -Ddocs=false
     sources:
       - type: archive
-        url: https://download.gnome.org/sources/libspelling/0.4/libspelling-0.4.9.tar.xz
-        sha256: d093fd35ae0f1c98fb58876505287fc0a885e47da9d2411d6d7cd595f34d4ebf
+        url: https://download.gnome.org/sources/libspelling/0.4/libspelling-0.4.10.tar.xz
+        sha256: 56e3f01a3a18b575beea4c34349f99cdaba316e1f7c271b1231f7bcf5d9af73b
         x-checker-data:
           type: gnome
           name: libspelling
