@@ -23,7 +23,6 @@ finish-args:
 cleanup:
   - /include
   - /lib/cmake
-  - /lib/girepository-1.0
   - /lib/pkgconfig
   - /share/gir-1.0
   - /share/man
