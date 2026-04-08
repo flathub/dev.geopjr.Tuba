@@ -22,15 +22,11 @@ finish-args:
   - --env=PYTHONPATH=/app/extensions/clapper/enhancers/python/site-packages
 cleanup:
   - /include
+  - /lib/cmake
   - /lib/pkgconfig
-  - /man
-  - /share/doc
-  - /share/gtk-doc
+  - /share/gir-1.0
   - /share/man
-  - /share/pkgconfig
   - /share/vala
-  - '*.la'
-  - '*.a'
 cleanup-commands:
   - mkdir -p /app/extensions/clapper/enhancers
 modules:
