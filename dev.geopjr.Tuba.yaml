@@ -55,10 +55,11 @@ modules:
     sources:
       - type: git
         url: https://github.com/Rafostar/clapper.git
-        tag: 0.8.0
+        tag: 0.10.0
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
+        commit: 8fcaaffe8a8f408f26a2da9f0a0087e32195fa46
   - name: libspelling
     buildsystem: meson
     config-opts:
@@ -73,8 +74,8 @@ modules:
   - name: exiv2
     sources:
       - type: archive
-        url: https://github.com/Exiv2/exiv2/archive/refs/tags/v0.28.7.tar.gz
-        sha256: 5e292b02614dbc0cee40fe1116db2f42f63ef6b2ba430c77b614e17b8d61a638
+        url: https://github.com/Exiv2/exiv2/archive/refs/tags/v0.28.8.tar.gz
+        sha256: ea51b0609f58a9afa063b60daa1539948b62247721e154f4fff0ad3aec9f9756
         x-checker-data:
           type: anitya
           project-id: 769
