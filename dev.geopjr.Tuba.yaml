@@ -150,8 +150,8 @@ modules:
     sources:
       - type: git
         url: https://codeberg.org/GeopJr/Tuba.git
-        tag: v0.11.0
-        commit: 8fa489cad0be3e9129fba79901fb8dab18817f28
+        tag: v0.11.1
+        commit: 3ff8d0c685c7b4a8b3d1b59b912eca3d3ac88794
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
