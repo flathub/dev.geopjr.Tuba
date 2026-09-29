@@ -147,7 +147,7 @@ modules:
       - -Dgstreamer=enabled
       - -Din-app-browser=enabled
       - -Dgexiv2=enabled
-      - -Dunifiedpush=enabled
+      - -Dunifiedpush=disabled
     sources:
       - type: git
         url: https://codeberg.org/GeopJr/Tuba.git
