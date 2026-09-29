@@ -156,3 +156,5 @@ modules:
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
+      - type: patch
+        path: fix-InstanceAccount-minimize-and-delay-account-saving.patch # https://codeberg.org/GeopJr/Tuba/pulls/1804
