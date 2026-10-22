@@ -84,6 +84,7 @@ modules:
       - -Dclapper-app=disabled
       - -Dintrospection=enabled
       - -Dvapi=enabled
+      - -Dgluploader=disabled
     sources:
       - type: git
         url: https://github.com/Rafostar/clapper.git
@@ -157,4 +158,4 @@ modules:
           type: git
           tag-pattern: ^v([\d.]+)$
       - type: patch
-        path: fix-InstanceAccount-minimize-and-delay-account-saving.patch # https://codeberg.org/GeopJr/Tuba/pulls/1804
+        path: fix-secretaccountstore-queue-libsecret-operations.patch # https://codeberg.org/GeopJr/Tuba/pulls/1812
